@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="901fd807-d21a-4317-bf69-1d424fe0eba8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ForumAPI/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/build.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/settings.gradle.kts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/src/main/kotlin/com/ForumApi/ForumApiApplication.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ForumAPI/src/test/kotlin/com/ForumApi/ForumApiApplicationTests.kt" beforeDir="false" />
-    </list>
+    <list default="true" id="c8aba081-e1bc-4859-82ca-2cbef3623dd9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/ForumAPI">
+    <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
@@ -39,7 +28,7 @@
     </system>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -56,7 +45,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2CZY21Mh1g10Wt7GRRADLrzobBm" />
+  <component name="ProjectId" id="2CZWMWoZA36AV3ELPB01B8GEEc6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -66,20 +55,42 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/onboarding/Desktop/API-Forum",
-    "settings.editor.selected.configurable": "vcs.Perforce"
+    "last_opened_file_path": "/home/onboarding/Desktop",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="ForumApiApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Kotlin.ForumApiApplicationKt (1)">
+    <configuration name="ForumApiApplicationKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.ForumApi.ForumApiApplicationKt" />
       <module name="ForumAPI.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ForumApiApplicationKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ForumApi.ForumApiApplicationKt" />
+      <module name="API-Forum" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Unnamed" type="JetRunConfigurationType" nameIsGenerated="true">
+      <module name="API-Forum" />
+      <shortenClasspath name="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Kotlin.Unnamed" />
+      <item itemvalue="Kotlin.ForumApiApplicationKt" />
+      <item itemvalue="Kotlin.ForumApiApplicationKt (1)" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.ForumApiApplicationKt (1)" />
         <item itemvalue="Kotlin.ForumApiApplicationKt" />
       </list>
     </recent_temporary>
@@ -87,11 +98,11 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="901fd807-d21a-4317-bf69-1d424fe0eba8" name="Changes" comment="" />
-      <created>1659011363911</created>
+      <changelist id="c8aba081-e1bc-4859-82ca-2cbef3623dd9" name="Changes" comment="" />
+      <created>1659010540460</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1659011363911</updated>
+      <updated>1659010540460</updated>
     </task>
     <servers />
   </component>
@@ -100,7 +111,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
