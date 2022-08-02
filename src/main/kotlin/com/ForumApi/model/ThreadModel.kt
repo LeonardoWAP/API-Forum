@@ -20,13 +20,11 @@ data class ThreadModel (
     @Column
     var description : String ,
 
-    var hashtag : ThreadHashtagModel,
+//    var hashtag : ThreadHashtagModel,
 
     @Column
     var customerId : Int ,
 
     var messages : MutableList<MessageModel>
-
-
 
     )
