@@ -24,5 +24,5 @@ data class CustomerModel (
     var password :String,
 
     @OneToMany
-    @JoinColumn ("thread_id")
+    //@JoinColumn ("thread_id")
     var threads : MutableList<ThreadModel>)

@@ -1,0 +1,13 @@
+Index: src/main/kotlin/com/ForumApi/enums/ThreadStatus.kt
+===================================================================
+diff --git a/src/main/kotlin/com/ForumApi/enums/ThreadStatus.kt b/src/main/kotlin/com/ForumApi/enums/ThreadStatus.kt
+--- a/src/main/kotlin/com/ForumApi/enums/ThreadStatus.kt	
++++ b/src/main/kotlin/com/ForumApi/enums/ThreadStatus.kt	
+@@ -1,4 +1,6 @@
+ package com.ForumApi.enums
+ 
+ enum class ThreadStatus {
++    ABERTO,
++    FECHADO
+ }
+\ No newline at end of file

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/API-Forum.iml" filepath="$PROJECT_DIR$/.idea/API-Forum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ForumAPI.iml" filepath="$PROJECT_DIR$/.idea/modules/ForumAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ForumAPI.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ForumAPI.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ForumAPI.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ForumAPI.test.iml" />
     </modules>
   </component>
 </project>
