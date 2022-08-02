@@ -1,2 +1,16 @@
 build/
-.idea/*
+.idea/
+.gradle
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/out/
+
+# Compiled class file and paths
+*.class
+/out
+/**/out
+/build
+/**/build
