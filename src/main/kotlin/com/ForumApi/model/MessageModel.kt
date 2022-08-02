@@ -1,9 +1,6 @@
 package com.ForumApi.model
 
-import javax.persistence.Column
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
 data class MessageModel (
     @Id
@@ -14,5 +11,6 @@ data class MessageModel (
     var customerId : Int,
 
     @Column
-    var description : String
-        )
+    var description : String){
+
+}

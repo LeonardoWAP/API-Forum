@@ -11,9 +11,5 @@ import org.springframework.web.bind.annotation.RestController
 class CustomerController(
     val customerService : CustomerService
 ) {
-    @GetMapping
-    fun getCustomer(): CustomerModel {
-        customerService.create("Leonardo")
-        return CustomerModel(1,"leonardo","leonardo@email")
-    }
+
 }
