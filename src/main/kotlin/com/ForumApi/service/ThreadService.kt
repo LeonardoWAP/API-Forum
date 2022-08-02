@@ -1,4 +1,8 @@
 package com.ForumApi.service
 
-class ThreadService {
+import com.ForumApi.repository.ThreadRepository
+import org.springframework.stereotype.Service
+
+@Service
+class ThreadService(val threadRepository: ThreadRepository) {
 }
