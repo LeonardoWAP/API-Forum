@@ -15,8 +15,5 @@ data class CustomerModel (
     var email :String,
 
     @Column
-    var password :String,
-
-    @OneToMany
-    //@JoinColumn ("thread_id")
-    var threads : MutableList<ThreadModel>)
+    var password :String
+    )
