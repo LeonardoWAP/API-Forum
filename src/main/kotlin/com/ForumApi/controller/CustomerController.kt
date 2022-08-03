@@ -6,12 +6,15 @@ import com.ForumApi.model.CustomerModel
 import com.ForumApi.repository.CustomerRepository
 
 import org.springframework.http.HttpStatus
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/customers")
-class CustomerController (private val customerRepository: CustomerRepository) {
+class CustomerController (
+    private val customerRepository: CustomerRepository,
+    private val bCrypt: BCryptPasswordEncoder
+    ) {
     private fun PostCustomerRequest.toCustomerModel(): CustomerModel {
         return CustomerModel(name = this.name, email = this.email,  password = this.password)
     }
@@ -20,7 +23,7 @@ class CustomerController (private val customerRepository: CustomerRepository) {
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody customer: PostCustomerRequest) {
         val customerCopy = customer.copy(
-            password = customer.password
+            password = bCrypt.encode(customer.password)
         )
         customerRepository.save(customerCopy.toCustomerModel())
     }
