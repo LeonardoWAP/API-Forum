@@ -1,15 +1,27 @@
-package com.ForumApi.Controller
+package com.ForumApi.controller
 
+
+import com.ForumApi.controller.request.PostCustomerRequest
 import com.ForumApi.model.CustomerModel
-import com.ForumApi.service.CustomerService
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import com.ForumApi.repository.CustomerRepository
+
+import org.springframework.http.HttpStatus
+//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
+import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/customer")
-class CustomerController(
-    val customerService : CustomerService
-) {
+@RequestMapping("/customers")
+class CustomerController (private val customerRepository: CustomerRepository) {
+    private fun PostCustomerRequest.toCustomerModel(): CustomerModel {
+        return CustomerModel(name = this.name, email = this.email,  password = this.password)
+    }
 
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    fun create(@RequestBody customer: PostCustomerRequest) {
+        val customerCopy = customer.copy(
+            password = customer.password
+        )
+        customerRepository.save(customerCopy.toCustomerModel())
+    }
 }
