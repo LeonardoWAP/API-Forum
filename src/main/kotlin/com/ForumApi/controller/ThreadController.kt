@@ -36,6 +36,7 @@ class ThreadController(
             title = request.title,
             description = request.description,
             customerId = 1
+
         )
         threadRepository.save(thread)
     }
