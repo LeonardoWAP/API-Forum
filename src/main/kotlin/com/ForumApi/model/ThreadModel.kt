@@ -1,12 +1,11 @@
 package com.ForumApi.model
 
 import com.ForumApi.Enums.ThreadStatus
-import javax.persistence.Column
-import javax.persistence.GeneratedValue
-import javax.persistence.GenerationType
-import javax.persistence.Id
+import javax.persistence.*
 
+@Entity(name = "thread")
 data class ThreadModel (
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id :Int? = null,
@@ -20,6 +19,7 @@ data class ThreadModel (
     @Column
     var description : String,
 
-    @Column
+    //@ManyToOne
+    @JoinColumn(name = "customer_id")
     var customerId : Int,
     )

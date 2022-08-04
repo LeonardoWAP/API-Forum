@@ -1,4 +1,12 @@
 package com.ForumApi.controller.request
 
-class PostThreadRequest {
-}
+import com.ForumApi.Enums.ThreadStatus
+import javax.persistence.*
+
+data class PostThreadRequest (
+    var title : String,
+
+    var status : ThreadStatus,
+
+    var description : String,
+        )
