@@ -46,9 +46,6 @@ class SecurityConfig(
     }
 
     override fun configure(auth: AuthenticationManagerBuilder) {
-        auth.userDetailsService(authenticationService).passwordEncoder(
-
-
-            ())
+        auth.userDetailsService(authenticationService).passwordEncoder(bCryptPasswordEncoder())
     }
 }
