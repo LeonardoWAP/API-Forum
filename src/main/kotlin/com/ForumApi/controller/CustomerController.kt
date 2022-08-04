@@ -19,7 +19,7 @@ class CustomerController (
         return CustomerModel(name = this.name, email = this.email,  password = this.password)
     }
 
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody customer: PostCustomerRequest) {
         val customerCopy = customer.copy(
