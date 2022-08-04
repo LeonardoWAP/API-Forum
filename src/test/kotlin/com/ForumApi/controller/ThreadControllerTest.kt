@@ -42,7 +42,7 @@ class ThreadControllerTest {
             "oi"
         )
         mockMvc.perform(
-            MockMvcRequestBuilders.post("/threads")
+            MockMvcRequestBuilders.post("/threads/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)
                 )

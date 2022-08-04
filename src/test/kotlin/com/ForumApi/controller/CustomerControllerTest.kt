@@ -45,7 +45,7 @@ class CustomerControllerTest {
             "123"
         )
         mockMvc.perform(
-            post("/customers")
+            post("/customers/create")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)
                 )
