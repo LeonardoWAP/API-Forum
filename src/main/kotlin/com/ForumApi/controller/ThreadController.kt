@@ -31,7 +31,7 @@ class ThreadController(
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody request : PostThreadRequest){
+    fun create(@RequestBody request : PostThreadRequest): Int? {
         val thread = ThreadModel(
             status = request.status,
             title = request.title,
@@ -39,7 +39,7 @@ class ThreadController(
             customerId = 1
         )
         threadRepository.save(thread)
-
+        return thread.id
     }
 
     @GetMapping("/listAll")
