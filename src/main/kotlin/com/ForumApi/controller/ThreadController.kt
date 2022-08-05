@@ -39,6 +39,7 @@ class ThreadController(
             customerId = 1
         )
         threadRepository.save(thread)
+
     }
 
     @GetMapping("/listAll")
