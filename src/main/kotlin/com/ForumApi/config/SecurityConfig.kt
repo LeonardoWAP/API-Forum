@@ -1,8 +1,13 @@
 package com.ForumApi.config
 
+import com.ForumApi.repository.CustomerRepository
+import com.ForumApi.security.AuthenticationFilter
 import com.ForumApi.security.AuthenticationService
+import com.ForumApi.security.AuthorizationFilter
+import com.ForumApi.security.JwtUtil
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -18,10 +23,14 @@ import org.springframework.web.filter.CorsFilter
 @EnableWebSecurity
 @EnableGlobalMethodSecurity( prePostEnabled = true)
 class SecurityConfig(
-    private val authenticationService: AuthenticationService
+    private val authenticationService: AuthenticationService,
+    private val customerRepository: CustomerRepository,
+    private val jwtUtil : JwtUtil
 ) : WebSecurityConfigurerAdapter() {
 
     override fun configure(http: HttpSecurity) {
+        http.addFilter(AuthenticationFilter(authenticationManager(), customerRepository, jwtUtil))
+        http.addFilter(AuthorizationFilter(authenticationManager(), customerRepository, jwtUtil))
         http.cors().and().csrf().disable()
         http.authorizeRequests()
             .anyRequest().permitAll()
