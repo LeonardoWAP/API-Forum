@@ -2,6 +2,8 @@ package com.ForumApi.controller
 
 import com.ForumApi.Enums.ThreadStatus
 import com.ForumApi.controller.request.PostThreadRequest
+import com.ForumApi.model.CustomerModel
+import com.ForumApi.model.ThreadModel
 import com.ForumApi.repository.CustomerRepository
 import com.ForumApi.repository.ThreadRepository
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -17,6 +19,8 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import java.math.BigDecimal
+import java.util.*
 import kotlin.concurrent.thread
 
 @SpringBootTest
@@ -31,6 +35,9 @@ class ThreadControllerTest {
 
     @Autowired
     private lateinit var objectMapper : ObjectMapper
+
+    @Autowired
+    private lateinit var customerRepository: CustomerRepository
 
     @BeforeEach
     fun setup() = threadRepository .deleteAll()
@@ -57,10 +64,18 @@ class ThreadControllerTest {
     }
 
     @Test
-    fun ` should return title of all threads `(){
+    fun ` should return title of all threads` (){
         mockMvc.perform(MockMvcRequestBuilders.get("/threads/listAll"))
             .andExpect(MockMvcResultMatchers.status().`is`(200))
-
     }
+
+    @Test
+    fun `should return only the thread that was chosen`(){
+        mockMvc.perform(MockMvcRequestBuilders.get("/threads/listById/1"))
+            .andExpect(MockMvcResultMatchers.status().`is`(200))
+    }
+
+
+
 }
 
