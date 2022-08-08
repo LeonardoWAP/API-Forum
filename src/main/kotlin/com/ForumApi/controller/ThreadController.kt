@@ -3,12 +3,15 @@ package com.ForumApi.controller
 import com.ForumApi.controller.request.PostThreadRequest
 import com.ForumApi.controller.response.PageResponse
 import com.ForumApi.controller.response.ThreadResponse
+import com.ForumApi.model.CustomerModel
 import com.ForumApi.model.ThreadModel
 import com.ForumApi.repository.ThreadRepository
+import com.ForumApi.security.UserCustomDetails
 import org.springframework.data.domain.Page
 import org.springframework.data.domain.Pageable
 import org.springframework.data.web.PageableDefault
 import org.springframework.http.HttpStatus
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
 import java.util.*
@@ -36,8 +39,9 @@ class ThreadController(
             status = request.status,
             title = request.title,
             description = request.description,
-            customerId = 1
+            customerId = authenticatedCustomer().id!!
         )
+
         threadRepository.save(thread)
         return thread.id
     }
@@ -50,5 +54,9 @@ class ThreadController(
     @GetMapping("listById/{id}")
     fun findById(@PathVariable id : Int): Optional<ThreadResponse>? {
         return threadRepository.findById(id).map { it.toResponse()}
+    }
+
+    private fun authenticatedCustomer(): CustomerModel{
+        return (SecurityContextHolder.getContext().authentication.principal as UserCustomDetails).customerModel
     }
 }
