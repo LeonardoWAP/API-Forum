@@ -17,8 +17,10 @@ data class MessageModel (
     @JoinColumn(name = "customer_id")
     var customerId : Int,
 
-    @JoinColumn(name = "thread_id")
-    var threadId : Int,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "thread_id", nullable = false)
+    var thread : ThreadModel,
+
 
     @Column(name = "created_at")
     val createdAt : LocalDateTime = LocalDateTime.now()

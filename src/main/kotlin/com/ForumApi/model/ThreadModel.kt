@@ -24,6 +24,9 @@ data class ThreadModel (
     @JoinColumn(name = "customer_id")
     var customerId : Int,
 
+    @OneToMany(mappedBy = "thread")
+    var messages : List<MessageModel>,
+
     @Column(name = "created_at")
     val createdAt : LocalDateTime = LocalDateTime.now()
     )
