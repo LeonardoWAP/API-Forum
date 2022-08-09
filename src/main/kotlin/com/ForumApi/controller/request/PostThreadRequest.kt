@@ -9,4 +9,6 @@ data class PostThreadRequest (
     var status : ThreadStatus,
 
     var description : String,
-        )
+
+    var hashtags : List<String>
+    )

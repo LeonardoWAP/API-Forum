@@ -6,6 +6,7 @@ import com.ForumApi.controller.response.PageResponse
 import com.ForumApi.controller.response.ThreadIdResponse
 import com.ForumApi.controller.response.ThreadResponse
 import com.ForumApi.model.CustomerModel
+import com.ForumApi.model.HashtagModel
 import com.ForumApi.model.MessageModel
 import com.ForumApi.model.ThreadModel
 import com.ForumApi.repository.ThreadRepository
@@ -29,6 +30,7 @@ class ThreadController(
             created_at = this.createdAt,
             title = this.title,
             description = this.description,
+            hashtags = this.hashtags,
             message = this.messages.map { it.toResponse() }
         )
     }
@@ -52,7 +54,8 @@ class ThreadController(
             title = request.title,
             description = request.description,
             customerId = authenticatedCustomer().id!!,
-            messages = emptyList()
+            messages = emptyList(),
+            hashtags = emptyList(),
         )
         threadRepository.save(thread)
         return ThreadIdResponse(id = thread.id)

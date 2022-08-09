@@ -21,7 +21,6 @@ data class MessageModel (
     @JoinColumn(name = "thread_id", nullable = false)
     var thread : ThreadModel,
 
-
     @Column(name = "created_at")
     val createdAt : LocalDateTime = LocalDateTime.now()
 )
