@@ -2,8 +2,6 @@ package com.ForumApi.controller
 
 import com.ForumApi.Enums.ThreadStatus
 import com.ForumApi.controller.request.PostThreadRequest
-import com.ForumApi.model.CustomerModel
-import com.ForumApi.model.ThreadModel
 import com.ForumApi.repository.CustomerRepository
 import com.ForumApi.repository.ThreadRepository
 import com.fasterxml.jackson.databind.ObjectMapper
@@ -13,15 +11,13 @@ import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.data.jpa.domain.AbstractPersistable_.id
+import org.springframework.data.web.JsonPath
 import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
-import java.math.BigDecimal
-import java.util.*
-import kotlin.concurrent.thread
+
 
 @SpringBootTest
 @AutoConfigureMockMvc

@@ -4,29 +4,24 @@ import com.ForumApi.Enums.ThreadStatus
 import java.time.LocalDateTime
 import javax.persistence.*
 
-@Entity(name = "thread")
-data class ThreadModel (
+@Entity(name = "message")
+data class MessageModel (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id :Int? = null,
 
     @Column
-    var status : ThreadStatus,
-
-    @Column
-    var title : String,
-
-    @Column
     var description : String,
 
-    //@ManyToOne
     @JoinColumn(name = "customer_id")
     var customerId : Int,
 
-    @OneToMany(mappedBy = "thread")
-    var messages : List<MessageModel>,
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "thread_id", nullable = false)
+    var thread : ThreadModel,
+
 
     @Column(name = "created_at")
     val createdAt : LocalDateTime = LocalDateTime.now()
-    )
+)
