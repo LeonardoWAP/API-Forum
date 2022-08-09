@@ -3,6 +3,7 @@ package com.ForumApi.controller
 import com.ForumApi.controller.request.PostThreadRequest
 import com.ForumApi.controller.response.MessageResponse
 import com.ForumApi.controller.response.PageResponse
+import com.ForumApi.controller.response.ThreadIdResponse
 import com.ForumApi.controller.response.ThreadResponse
 import com.ForumApi.model.CustomerModel
 import com.ForumApi.model.MessageModel
@@ -45,7 +46,7 @@ class ThreadController(
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody request : PostThreadRequest): Int? {
+    fun create(@RequestBody request : PostThreadRequest ): ThreadIdResponse? {
         val thread = ThreadModel(
             status = request.status,
             title = request.title,
@@ -54,7 +55,7 @@ class ThreadController(
             messages = emptyList()
         )
         threadRepository.save(thread)
-        return  thread.id
+        return ThreadIdResponse(id = thread.id)
     }
 
 

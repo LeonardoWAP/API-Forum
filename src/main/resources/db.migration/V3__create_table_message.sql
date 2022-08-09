@@ -4,6 +4,6 @@ CREATE TABLE message(
 	thread_id int NOT NULL,
 	customer_id int NOT NULL ,
 	created_at date NOT NULL,
-	FOREIGN KEY (customer_id) REFERENCES customer(id)
+	FOREIGN KEY (customer_id) REFERENCES customer(id),
 	FOREIGN KEY (thread_id) REFERENCES thread(id)
 );
