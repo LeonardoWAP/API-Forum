@@ -27,7 +27,7 @@ data class ThreadModel (
     @OneToMany(mappedBy = "thread")
     var messages : List<MessageModel>,
 
-    @ManyToMany
+    @ManyToMany(cascade = arrayOf(CascadeType.ALL))
     @JoinTable(
         name = "hashtag_thread",
         joinColumns = arrayOf(JoinColumn(name = "thread_id")),

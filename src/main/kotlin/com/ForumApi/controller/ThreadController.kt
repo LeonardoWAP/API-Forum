@@ -1,14 +1,12 @@
 package com.ForumApi.controller
 
 import com.ForumApi.controller.request.PostThreadRequest
-import com.ForumApi.controller.response.MessageResponse
-import com.ForumApi.controller.response.PageResponse
-import com.ForumApi.controller.response.ThreadIdResponse
-import com.ForumApi.controller.response.ThreadResponse
+import com.ForumApi.controller.response.*
 import com.ForumApi.model.CustomerModel
 import com.ForumApi.model.HashtagModel
 import com.ForumApi.model.MessageModel
 import com.ForumApi.model.ThreadModel
+import com.ForumApi.repository.HashtagRepository
 import com.ForumApi.repository.ThreadRepository
 import com.ForumApi.security.UserCustomDetails
 import org.springframework.data.domain.Page
@@ -23,7 +21,8 @@ import org.springframework.web.servlet.mvc.method.annotation.JsonViewResponseBod
 @RestController
 @RequestMapping("/threads")
 class ThreadController(
-    private val threadRepository: ThreadRepository
+    private val threadRepository: ThreadRepository,
+    private val hashtagRepository: HashtagRepository
 ){
     private fun ThreadModel.toResponse(): ThreadResponse{
         return ThreadResponse(
@@ -45,26 +44,37 @@ class ThreadController(
     }
 
 
+    private fun selectHashtag(hashtag: String): HashtagModel{
+        val hashtagDB = hashtagRepository.findByName(hashtag)
+        if (hashtagDB == null){
+            return HashtagModel(name= hashtag)
+        }else {
+            return hashtagDB
+        }
+    }
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     fun create(@RequestBody request : PostThreadRequest ): ThreadIdResponse? {
+        val hashtags : List<HashtagModel> = request.hashtags.map { selectHashtag(it) }
+
         val thread = ThreadModel(
             status = request.status,
             title = request.title,
             description = request.description,
             customerId = authenticatedCustomer().id!!,
             messages = emptyList(),
-            hashtags = emptyList(),
+            hashtags = hashtags
         )
+
         threadRepository.save(thread)
         return ThreadIdResponse(id = thread.id)
     }
 
 
     @GetMapping("/listAll")
-    fun findAll(@PageableDefault(page = 0 , size = 10) pageable :Pageable): PageResponse <String>{
-        return threadRepository.findAll(pageable).map { it.title }.toPageResponse()
+    fun findAll(@PageableDefault(page = 0 , size = 10) pageable :Pageable): PageResponse <response>{
+        return threadRepository.findAll(pageable).map { response(titles = it.title, hashtags = it.hashtags)}.toPageResponse()
     }
 
     @GetMapping("listById/{id}")
