@@ -1,11 +1,11 @@
 package com.ForumApi.ModelBuilderHelper
 
-import com.mercadolivro.enums.CustomerStatus
-import com.mercadolivro.enums.Role
-import com.mercadolivro.model.BookModel
-import com.mercadolivro.model.CustomerModel
-import com.mercadolivro.model.PurchaseModel
-import java.math.BigDecimal
+import com.ForumApi.Enums.ThreadStatus
+import com.ForumApi.model.CustomerModel
+import com.ForumApi.model.HashtagModel
+import com.ForumApi.model.MessageModel
+import com.ForumApi.model.ThreadModel
+import java.time.LocalDateTime
 import java.util.*
 
 fun buildCustomer(
@@ -17,22 +17,27 @@ fun buildCustomer(
     id = id,
     name = name,
     email = email,
-    status = CustomerStatus.ATIVO,
     password = password,
-    roles = setOf(Role.CUSTOMER)
 )
 
-fun buildPurchase (
+fun buildThread (
     id: Int? = null,
     customer: CustomerModel = buildCustomer(),
-    books: MutableList<BookModel> = mutableListOf(),
-    nfe: String? = UUID.randomUUID().toString(),
-    price: BigDecimal = BigDecimal.TEN
-)= PurchaseModel(
-    id = id,
-    customer = customer,
-    books = books,
-    nfe = nfe,
-    price = price
+    status : ThreadStatus,
+    title : String = "olá",
+    description : String = "oiiiiii pessual",
+    customerid : Int = 1,
+    messages : List<MessageModel> = listOf(),
+    hashtags : List<HashtagModel> = listOf(),
+    createdAt : LocalDateTime = LocalDateTime.now()
 
+)= ThreadModel(
+    id = id,
+    status = status,
+    title = title,
+    description = description,
+    customerId = customerid,
+    messages = messages,
+    hashtags = hashtags,
+    createdAt = createdAt
 )
