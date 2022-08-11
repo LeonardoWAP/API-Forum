@@ -27,6 +27,15 @@ data class ThreadModel (
     @OneToMany(mappedBy = "thread")
     var messages : List<MessageModel>,
 
+    @ManyToMany(cascade = arrayOf(CascadeType.ALL))
+    @JoinTable(
+        name = "hashtag_thread",
+        joinColumns = arrayOf(JoinColumn(name = "thread_id")),
+        inverseJoinColumns = arrayOf(JoinColumn(name = "hashtag_id"))
+    )
+    var hashtags : List<HashtagModel>,
+
+
     @Column(name = "created_at")
     val createdAt : LocalDateTime = LocalDateTime.now()
     )
