@@ -75,8 +75,6 @@ class MessageControllerTest {
 
         val token = jwtUtil.generateToken(customer.id!!)
 
-
-
         val thread = threadRepository.save(
             ThreadModel(
                 status = ThreadStatus.ABERTO,
@@ -97,6 +95,8 @@ class MessageControllerTest {
         )
 
         val (status, response) = post("/message/create", request)
+
+
         Assertions.assertEquals(HttpStatus.CREATED, status)
     }
 
