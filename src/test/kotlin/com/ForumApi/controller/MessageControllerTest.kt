@@ -48,6 +48,6 @@ class MessageControllerTest {
         val message = MessageRepository.findAll().toList()
         Assertions.assertEquals(1, message.size)
         Assertions.assertEquals(request.description,message.first().description)
-        Assertions.assertEquals(request.threadId,message.first().threadId)
+        Assertions.assertEquals(request.threadId,message.first().thread)
     }
 }
