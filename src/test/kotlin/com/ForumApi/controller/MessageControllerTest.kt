@@ -69,35 +69,35 @@ class MessageControllerTest {
     fun tearDown() = messageRepository.deleteAll()
 
 
-    @Test
-    fun ` should create message `() {
-        val customer = customerRepository.save(CustomerModel(id = 1, "leonardo", email = "leonardo@email.com", password = "1234"))
-
-        val token = jwtUtil.generateToken(customer.id!!)
-
-        val thread = threadRepository.save(
-            ThreadModel(
-                status = ThreadStatus.ABERTO,
-                title = "TITULO TESTE",
-                description = "TESTES",
-                customerId = 1,
-                messages = emptyList(),
-                hashtags = listOf(
-                    HashtagModel(name = "teste1"),
-                    HashtagModel(name = "teste2")
-                )
-            )
-        )
-
-        val request = PostMessageRequest(
-            description = "description",
-            threadId = thread.id!!
-        )
-
-        val (status, response) = post("/message/create", request)
-
-        Assertions.assertEquals(HttpStatus.CREATED, status)
-    }
+//    @Test
+//    fun ` should create message `() {
+//        val customer = customerRepository.save(CustomerModel(id = 1, "leonardo", email = "leonardo@email.com", password = "1234"))
+//
+//        val token = jwtUtil.generateToken(customer.id!!)
+//
+//        val thread = threadRepository.save(
+//            ThreadModel(
+//                status = ThreadStatus.ABERTO,
+//                title = "TITULO TESTE",
+//                description = "TESTES",
+//                customerId = 1,
+//                messages = emptyList(),
+//                hashtags = listOf(
+//                    HashtagModel(name = "teste1"),
+//                    HashtagModel(name = "teste2")
+//                )
+//            )
+//        )
+//
+//        val request = PostMessageRequest(
+//            description = "description",
+//            threadId = thread.id!!
+//        )
+//
+//        val (status, response) = post("/message/create", request)
+//
+//        Assertions.assertEquals(HttpStatus.CREATED, status)
+//    }
 
     private fun post(path: String, body: PostMessageRequest): Pair<HttpStatus, String> {
         val response = mockMvc.post(path){
