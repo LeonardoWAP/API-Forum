@@ -12,7 +12,7 @@ com o intuito de aprender e desenvolver um forum com que as pessoas consigam env
 
 foi utilizado o banco de dados Postgre e a linguagem kotlin para o desenvolvimento da API.
 
-bibliotecas utilizadas : 
+bibliotecas utilizadas : <br>
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")
