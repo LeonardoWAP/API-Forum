@@ -24,6 +24,10 @@ data class ThreadModel (
     @JoinColumn(name = "customer_id")
     var customerId : Int,
 
+    @JoinColumn(name = "name")
+    var customerName: String,
+
+
     @OneToMany(mappedBy = "thread")
     var messages : List<MessageModel>,
 

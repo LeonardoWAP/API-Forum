@@ -30,7 +30,8 @@ class ThreadController(
             title = this.title,
             description = this.description,
             hashtags = this.hashtags,
-            message = this.messages.map { it.toResponse() }
+            message = this.messages.map { it.toResponse() },
+            customerName = authenticatedCustomer().name
         )
     }
     private fun MessageModel.toResponse(): MessageResponse{
@@ -64,7 +65,8 @@ class ThreadController(
             description = request.description,
             customerId = authenticatedCustomer().id!!,
             messages = emptyList(),
-            hashtags = hashtags
+            hashtags = hashtags,
+            customerName = authenticatedCustomer().name
         )
 
         threadRepository.save(thread)

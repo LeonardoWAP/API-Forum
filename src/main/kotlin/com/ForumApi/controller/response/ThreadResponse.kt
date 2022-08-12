@@ -4,6 +4,7 @@ import com.ForumApi.model.HashtagModel
 import java.time.LocalDateTime
 
 data class ThreadResponse(
+    var customerName: String,
     var title: String,
     var description: String,
     var hashtags : List<HashtagModel>,
